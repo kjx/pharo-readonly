@@ -6,7 +6,7 @@ A slot what crashes if read before written.
 "
 Class {
 	#name : 'WriteBeforeReadSlot',
-	#superclass : 'AbstractInitializedSlot',
+	#superclass : 'IndexedSlot',
 	#category : 'Readonly-Slots',
 	#package : 'Readonly',
 	#tag : 'Slots'

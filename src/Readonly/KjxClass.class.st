@@ -6,7 +6,7 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'#a => WriteOnceSlot',
-		'#b => WriteBeforeReadSlot default: nil'
+		'#b => WriteBeforeReadSlot'
 	],
 	#category : 'Readonly-Base',
 	#package : 'Readonly',
