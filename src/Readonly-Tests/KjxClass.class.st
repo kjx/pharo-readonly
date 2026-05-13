@@ -8,16 +8,39 @@ Class {
 		'#a => WriteOnceSlot',
 		'#b => WriteBeforeReadSlot'
 	],
-	#category : 'Readonly-Base',
-	#package : 'Readonly',
-	#tag : 'Base'
+	#category : 'Readonly-Tests',
+	#package : 'Readonly-Tests'
 }
+
+{ #category : 'accessing' }
+KjxClass >> a [
+
+	^ a
+]
+
+{ #category : 'accessing' }
+KjxClass >> a: anObject [
+
+	a := anObject
+]
+
+{ #category : 'accessing' }
+KjxClass >> b [
+
+	^ b
+]
+
+{ #category : 'accessing' }
+KjxClass >> b: anObject [
+
+	b := anObject
+]
 
 { #category : 'initialization' }
 KjxClass >> initialize [
-
-	self class initializeSlots: self.
 	super initialize.
+	self class initializeSlots: self.
+
 ]
 
 { #category : 'hacking' }
