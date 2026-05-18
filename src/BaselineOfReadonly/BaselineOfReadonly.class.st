@@ -1,6 +1,6 @@
 Class {
 	#name : 'BaselineOfReadonly',
-	#superclass : 'Object',
+	#superclass : 'BaselineOf',
 	#category : 'BaselineOfReadonly',
 	#package : 'BaselineOfReadonly'
 }
