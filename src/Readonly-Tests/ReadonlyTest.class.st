@@ -16,7 +16,6 @@ ReadonlyTest >> testWriteBeforeRead [
 	instance b: 1.
 	
 	self assert: instance b equals: 1.
-	"second raises error"
 ]
 
 { #category : 'tests' }
