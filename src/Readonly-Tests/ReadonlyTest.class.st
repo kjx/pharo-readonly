@@ -6,6 +6,20 @@ Class {
 }
 
 { #category : 'tests' }
+ReadonlyTest >> testWriteBeforeRead [
+	| instance |
+	instance := KjxClass new.
+
+	"we can not read b as it is undefined"
+	self should: [ instance b ] raise: Error.
+	
+	instance b: 1.
+	
+	self assert: instance b equals: 1.
+	"second raises error"
+]
+
+{ #category : 'tests' }
 ReadonlyTest >> testWriteOnce [
 	| instance |
 	instance := KjxClass new.
