@@ -8,7 +8,7 @@
 
 ```
 Metacello new 
-	repository: 'github://kjx/pharo-readonly:main/src';
+	repository: 'github://kjx/pharo-readonly:master/src';
 	baseline: 'Readonly';
 	load
 ```
