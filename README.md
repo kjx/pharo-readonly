@@ -1,6 +1,6 @@
 # Experiments
 
-[![CI matrix](https:/github.com/kjx/pharo-readonly/actions/workflows/build.yml/badge.svg)](https://github.com/kjx/pharo-readonly/actions/workflows/build.yml)
+[![CI matrix](https://github.com/kjx/pharo-readonly/actions/workflows/build.yml/badge.svg)](https://github.com/kjx/pharo-readonly/actions/workflows/build.yml)
 
 
 
