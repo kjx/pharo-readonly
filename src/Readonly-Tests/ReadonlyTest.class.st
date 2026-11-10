@@ -6,6 +6,22 @@ Class {
 }
 
 { #category : 'tests' }
+ReadonlyTest >> testChangeClass [
+	| k m |
+	k := KjxClass new.
+	m := MddClass new.
+
+	k b: 32.
+
+	k primitiveChangeClassTo: m.
+
+	k assert: (32 == k b).
+	
+	"writing is not possible"
+	self should: [k b: 23] raise: Error.
+]
+
+{ #category : 'tests' }
 ReadonlyTest >> testWriteBeforeRead [
 	| instance |
 	instance := KjxClass new.

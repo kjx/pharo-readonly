@@ -15,7 +15,7 @@ Class {
 { #category : 'initialization' }
 WriteBeforeReadSlot >> initialize: anObject [
 
-	self write: #KjxSentinalForWriteBeforeReadSlot   to: anObject
+	self write: #KjxSentinalForWriteBeforeReadSlot to: anObject
 ]
 
 { #category : 'meta-object-protocol' }
