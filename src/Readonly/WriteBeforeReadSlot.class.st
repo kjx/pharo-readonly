@@ -22,7 +22,6 @@ WriteBeforeReadSlot >> initialize: anObject [
 WriteBeforeReadSlot >> read: anObject [
 	"crash if value hasn't yet been written"
 
-	<reflection: 'Object Inspection - State inspection'>
 	| contents |
 	contents := super read: anObject.
 	^ #KjxSentinalForWriteBeforeReadSlot == contents

@@ -19,6 +19,23 @@ ReadonlyTest >> testWriteBeforeRead [
 ]
 
 { #category : 'tests' }
+ReadonlyTest >> testWriteBeforeRead2 [
+	"A second write works as expected"
+	| instance |
+	instance := KjxClass new.
+
+	"we can not read b as it is undefined"
+	self should: [ instance b ] raise: Error.
+	
+	instance b: 1.
+	self assert: instance b equals: 1.
+	
+	"second write is ok"
+	instance b: 2.
+	self assert: instance b equals: 2
+]
+
+{ #category : 'tests' }
 ReadonlyTest >> testWriteOnce [
 	| instance |
 	instance := KjxClass new.
