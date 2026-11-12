@@ -15,7 +15,7 @@ Class {
 { #category : 'initialization' }
 WriteBeforeReadSlot >> initialize: anObject [
 
-	self write: #KjxSentinalForWriteBeforeReadSlot to: anObject
+	super write: #KjxSentinalForWriteBeforeReadSlot to: anObject
 ]
 
 { #category : 'initialization' }
@@ -53,17 +53,11 @@ WriteBeforeReadSlot >> wantsInitialization [
 { #category : 'meta-object-protocol' }
 WriteBeforeReadSlot >> write: aValue to: anObject [
 
-	| contents |
-	contents := super read: anObject.
-	
-	" write is forbidden if already initialized"
-	 #KjxSentinalForWriteBeforeReadSlot == contents
-		 	ifFalse: [ self error: 'you cannot write twice' ]
-		   ifTrue:  [ super write: aValue to: anObject. ].
+	(self isCooked: anObject)
+		 	ifTrue:  [ self error: 'you cannot write twice' ]
+		   ifFalse:  [ super write: aValue to: anObject. ].
 
 	"here we need to check if the class is already cooked, if yes, we can create the shadow"
 	
-	(self definingClass isCooked: anObject) ifTrue: [ self optimizeFor: anObject ].
-
-	^contents
+	(self definingClass isCooked: anObject) ifTrue: [ self optimizeFor: anObject ]
 ]
