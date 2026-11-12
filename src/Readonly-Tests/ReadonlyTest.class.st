@@ -22,6 +22,20 @@ ReadonlyTest >> testChangeClass [
 ]
 
 { #category : 'tests' }
+ReadonlyTest >> testIsCooked [
+	| instance |
+	"if there are none, it is true"
+	self assert: (Point isCooked: 5@5).
+	
+	
+	instance := KjxClass new.
+	self deny: (KjxClass isCooked: instance).
+	
+	instance b: 5.
+	self assert: (KjxClass isCooked: instance).
+]
+
+{ #category : 'tests' }
 ReadonlyTest >> testWriteBeforeRead [
 	| instance |
 	instance := KjxClass new.
@@ -30,6 +44,9 @@ ReadonlyTest >> testWriteBeforeRead [
 	self should: [ instance b ] raise: Error.
 	
 	instance b: 1.
+	
+	"assignment changes class to the optimzed version, for now hard coded MddClass"
+	self assert: instance class == MddClass.
 	
 	self assert: instance b equals: 1.
 ]
@@ -46,9 +63,9 @@ ReadonlyTest >> testWriteBeforeRead2 [
 	instance b: 1.
 	self assert: instance b equals: 1.
 	
-	"second write is ok"
-	instance b: 2.
-	self assert: instance b equals: 2
+	"second write not! ok"
+	self should: [instance b: 2] raise: Error.
+	
 ]
 
 { #category : 'tests' }
