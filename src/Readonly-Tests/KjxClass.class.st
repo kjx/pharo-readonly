@@ -12,12 +12,6 @@ Class {
 	#package : 'Readonly-Tests'
 }
 
-{ #category : 'shadow class' }
-KjxClass class >> getShadowClass [
-	"hack: MddClass is our shadow"
-	^MddClass 
-]
-
 { #category : 'accessing' }
 KjxClass >> a [
 
