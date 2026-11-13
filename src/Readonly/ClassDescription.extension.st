@@ -9,10 +9,12 @@ ClassDescription >> getShadowClass [
 		shadowClass := self copyForReadOnly.
 		"now we need to add superclass"
 		
-		self superclass ifNotNil: [  
-		shadowClass basicSuperclass: 
-				self superclass getShadowClass].
+		self superclass == Object 
+			ifFalse: [shadowClass basicSuperclass: self superclass getShadowClass]
+			ifTrue: [shadowClass basicSuperclass: Object].
+		shadowClass compileAllFrom: self.
 		"and recompile all methods"	
+		
 		self error: 'not yet implemented' ] 
 ]
 
